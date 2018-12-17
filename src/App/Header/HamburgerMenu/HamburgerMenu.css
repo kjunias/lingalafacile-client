@@ -1,0 +1,10 @@
+.hamburgermenu {
+    width: 99px;
+    height: 55px;
+    float: left;
+}
+
+.hamburgermenu img {
+    width: 100%;
+    height: 100%;
+}
