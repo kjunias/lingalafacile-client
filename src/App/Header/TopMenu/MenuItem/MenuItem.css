@@ -8,4 +8,11 @@
     padding-left: 15px;
     padding-right: 15px;
     vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+}
+
+.menuitem:hover {
+    background-color: rgba(227, 194, 94, 0.8);
+    border-radius: 6px;
 }
