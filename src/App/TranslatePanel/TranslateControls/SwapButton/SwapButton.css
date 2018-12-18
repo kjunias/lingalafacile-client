@@ -3,3 +3,11 @@
     height: 41px;
     margin-left: 180px;
 }
+
+.swap-button:active {
+    border-color: rgba(84, 137, 170, 0.75);
+    -webkit-box-shadow: inset 0px 0px 7px rgb(133, 133, 133);
+       -moz-box-shadow: inset 0px 0px 7px rgb(133, 133, 133);
+            box-shadow: inset 0px 0px 7px rgb(133, 133, 133);
+     outline: none;
+}
