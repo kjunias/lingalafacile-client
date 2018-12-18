@@ -1,0 +1,47 @@
+.search-area {
+    height: 380px;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.50);
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    border-color: rgba(97, 144, 175, 0.75);
+    border-style: solid;
+    border-width: thin;
+}
+
+.search-area div {
+    width: 50%;
+    height: 100%;
+    border: none;
+    resize: none;
+    background-color: rgba(255, 255, 255, 0.6);
+    margin: 0px;
+    padding: 0px;
+}
+
+.search-area .from {
+    float: left;
+}
+
+.search-area .to {
+    width: calc(50% - 1px);
+    float: right;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-left-color: rgba(97, 144, 175, 0.55);
+    border-left-style: solid;
+    border-left-width: thin;
+}
+
+.search-area div textarea {
+    width: 100%;
+    height: 100%;
+    border: none;
+    resize: none;
+    background: inherit;
+    padding: 10px;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif;
+    font-size: 32pt;
+    color: rgba(0, 0, 0, 0.70);
+}
