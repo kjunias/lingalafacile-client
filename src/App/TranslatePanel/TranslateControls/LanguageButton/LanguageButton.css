@@ -1,0 +1,32 @@
+.left .lang-button {
+    float: left;
+}
+
+.right .lang-button {
+    float: right;
+}
+
+.lang-button {
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: rgba(84, 137, 170, 0.75);
+    padding: 5px 9px;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    background-color: #EBEBEB;
+    border-color: rgba(139,139,139,0.75);
+    border-style: solid;
+}
+
+.lang-button:nth-of-type(2) {
+    border-left: none;
+    border-right: none;
+}
+
+.lang-button:hover {
+    color: rgba(84, 137, 170, 0.90);
+}
