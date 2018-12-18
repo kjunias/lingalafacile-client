@@ -1,0 +1,34 @@
+.terminology {
+    width: 100%;
+    display: block;
+    border: none;
+    text-align: left;
+}
+
+.terminology h1{
+    font-family: Roboto, sans-serif;
+    font-size: 2em;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: rgba(0, 0, 0, 0.65);
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.terminology .terms {
+    margin-left: 40px;
+    margin-right: 20px;
+    font-family: Roboto, sans-serif;
+    font-size: 24px;
+    color: rgba(0, 62, 104, 0.65);
+    display: inline-block;
+}
+
+.terminology .terms p {
+    margin: 0;
+}
+
+.terminology .terms p a {
+    color: inherit;
+    text-decoration: none;
+}
