@@ -30,3 +30,11 @@
 .lang-button:hover {
     color: rgba(84, 137, 170, 0.90);
 }
+
+.lang-button.active {
+    border-color: rgba(84, 137, 170, 0.75);
+    -webkit-box-shadow: inset 0px 0px 10px 1px rgba(212, 110, 62, 0.54);
+       -moz-box-shadow: inset 0px 0px 10px 1px rgba(212, 110, 62, 0.54);
+            box-shadow: inset 0px 0px 10px 1px rgba(212, 110, 62, 0.54);
+     outline: none;
+}
