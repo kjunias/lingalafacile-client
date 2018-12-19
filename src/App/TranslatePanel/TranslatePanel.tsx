@@ -20,4 +20,3 @@ class TranslatePanel extends React.Component {
   }
 }
 export default TranslatePanel;
-  
