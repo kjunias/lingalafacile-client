@@ -5,15 +5,19 @@ import SearchArea from './SearchArea/SearchArea';
 import TerminologySection from './TerminologySection/TerminologySection';
 
 class TranslatePanel extends React.Component {
-    render() {
-      return (
-        <div className="translate-panel">
-          <TranslateControls/>
-          <SearchArea/>
-          <TerminologySection/>
-        </div>
-      );
-    }
+  handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
   }
+
+  render() {
+    return (
+      <form className="translate-panel" onSubmit={this.handleSubmit}>
+        <TranslateControls/>
+        <SearchArea/>
+        <TerminologySection/>
+      </form>
+    );
+  }
+}
 export default TranslatePanel;
   
