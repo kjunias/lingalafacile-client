@@ -5,7 +5,7 @@ var imgSrc = require('./images/swap_btn_icon2.png');
 class SwapButton extends React.Component {
     render() {
       return (
-        <button className="lang-button swap-button">
+        <button className="lang-button swap-button" type="button">
             <img src={imgSrc} />
         </button>
       );
