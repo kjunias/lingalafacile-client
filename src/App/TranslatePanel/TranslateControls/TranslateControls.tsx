@@ -9,6 +9,12 @@ export interface TranslateCtrlState {
   to: {active: string};
 }
 
+export interface Language {
+  name: string;
+}
+
+let languages: Language[] = require('../../../data/languages.json');
+
 class TranslateControls extends React.Component <object, TranslateCtrlState> {
 
   constructor (props: object) {
@@ -35,18 +41,18 @@ class TranslateControls extends React.Component <object, TranslateCtrlState> {
     return (
       <div className="translate-controls">
         <div className="left">
-          <LanguageButton  name="Lingala" active={this.state.from.active} setActive={this.setActiveFrom}/>
-          <LanguageButton  name="English" active={this.state.from.active} setActive={this.setActiveFrom}/>
-          <LanguageButton  name="Fancais" active={this.state.from.active} setActive={this.setActiveFrom}/>
+          {languages.map((lang, i) =>
+            <LanguageButton  key={i} name={lang.name} active={this.state.from.active} setActive={this.setActiveFrom}/>
+          )}
         </div>
         <div className="center">
           <SwapButton />
           <TranslateButton />
         </div>
         <div className="right">
-          <LanguageButton  name="Lingala"  active={this.state.to.active} setActive={this.setActiveTo}/>
-          <LanguageButton  name="English" active={this.state.to.active} setActive={this.setActiveTo}/>
-          <LanguageButton  name="Fancais" active={this.state.to.active} setActive={this.setActiveTo}/>
+          {languages.map((lang, i) =>
+            <LanguageButton  key={i} name={lang.name} active={this.state.to.active} setActive={this.setActiveTo}/>
+          )}
         </div>
       </div>
     );
