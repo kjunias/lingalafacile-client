@@ -6,7 +6,7 @@ class SearchArea extends React.Component {
       return (
         <div className="search-area">
           <div className="from">
-            <textarea />
+            <textarea required={true}/>
           </div>
           <div className="to">
             <textarea disabled={true}/>

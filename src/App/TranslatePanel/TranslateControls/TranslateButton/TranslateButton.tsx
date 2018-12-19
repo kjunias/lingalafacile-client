@@ -10,7 +10,7 @@ class TranslateButton extends React.Component <object> {
 
   render() {
     return (
-      <button className="lang-button translate">
+      <button className="lang-button translate" type="submit">
         Translate
       </button>
     );
