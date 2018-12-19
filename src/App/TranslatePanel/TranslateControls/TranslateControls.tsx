@@ -10,8 +10,8 @@ export interface TranslateCtrlState {
 
 class TranslateControls extends React.Component <object, TranslateCtrlState> {
 
-  constructor () {
-    super({});
+  constructor (props: object) {
+    super(props);
     this.state = {
       from: {active : ''},
       to: {active : ''}
