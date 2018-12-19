@@ -25,7 +25,8 @@ class LanguageButton extends React.Component <Props, LangState> {
 
   render() {
     return (
-      <button 
+      <button
+        type="button"
         className={'lang-button' + (this.props.className ? ' ' + this.props.className : '') 
           + (this.props.active === this.props.name ? ' active' : '')}
         onClick={this.onLangClick}
