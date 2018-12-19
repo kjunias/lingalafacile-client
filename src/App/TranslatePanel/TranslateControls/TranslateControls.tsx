@@ -2,6 +2,7 @@ import * as React from 'react';
 import './TranslateControls.css';
 import LanguageButton from './LanguageButton/LanguageButton';
 import SwapButton from './SwapButton/SwapButton';
+import TranslateButton from './TranslateButton/TranslateButton';
 
 export interface TranslateCtrlState {
   from: {active: string};
@@ -10,8 +11,8 @@ export interface TranslateCtrlState {
 
 class TranslateControls extends React.Component <object, TranslateCtrlState> {
 
-  constructor () {
-    super({});
+  constructor (props: object) {
+    super(props);
     this.state = {
       from: {active : ''},
       to: {active : ''}
@@ -40,12 +41,7 @@ class TranslateControls extends React.Component <object, TranslateCtrlState> {
         </div>
         <div className="center">
           <SwapButton />
-          <LanguageButton
-            name="Translate"
-            active={this.state.from.active}
-            setActive={this.setActiveFrom}
-            className="translate"
-          />
+          <TranslateButton />
         </div>
         <div className="right">
           <LanguageButton  name="Lingala"  active={this.state.to.active} setActive={this.setActiveTo}/>
