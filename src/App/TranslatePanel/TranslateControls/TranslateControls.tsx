@@ -48,9 +48,9 @@ class TranslateControls extends React.Component <object, TranslateCtrlState> {
           />
         </div>
         <div className="right">
-          <LanguageButton  name="Lingala"  active={this.state.from.active} setActive={this.setActiveFrom}/>
-          <LanguageButton  name="English" active={this.state.from.active} setActive={this.setActiveFrom}/>
-          <LanguageButton  name="Fancais" active={this.state.from.active} setActive={this.setActiveFrom}/>
+          <LanguageButton  name="Lingala"  active={this.state.to.active} setActive={this.setActiveTo}/>
+          <LanguageButton  name="English" active={this.state.to.active} setActive={this.setActiveTo}/>
+          <LanguageButton  name="Fancais" active={this.state.to.active} setActive={this.setActiveTo}/>
         </div>
       </div>
     );
