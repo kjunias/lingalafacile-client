@@ -4,5 +4,5 @@ import LanguageButton from './LanguageButton';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<LanguageButton name="MenuIten"/>, div);
+  ReactDOM.render(<LanguageButton name="MenuIten" active="Lingala" setActive={() => {print(); }}/>, div);
 });

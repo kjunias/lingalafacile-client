@@ -4,6 +4,8 @@ import './LanguageButton.css';
 export interface Props {
   name: string;
   className?: string;
+  setActive: Function;
+  active: string;
 }
 
 export interface LangState {
@@ -18,16 +20,14 @@ class LanguageButton extends React.Component <Props, LangState> {
   }
 
   onLangClick = () => {
-    this.setState({
-      isActive: true
-    });
+    this.props.setActive(this.props.name);
   }
 
   render() {
     return (
       <button 
         className={'lang-button' + (this.props.className ? ' ' + this.props.className : '') 
-          + (this.state.isActive ? ' active' : '')}
+          + (this.props.active === this.props.name ? ' active' : '')}
         onClick={this.onLangClick}
       >
         {this.props.name}

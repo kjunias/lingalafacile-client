@@ -3,27 +3,58 @@ import './TranslateControls.css';
 import LanguageButton from './LanguageButton/LanguageButton';
 import SwapButton from './SwapButton/SwapButton';
 
-class TranslateControls extends React.Component {
-    render() {
-      return (
-        <div className="translate-controls">
-          <div className="left">
-            <LanguageButton  name="Lingala"/>
-            <LanguageButton  name="English"/>
-            <LanguageButton  name="Fancais"/>
-          </div>
-          <div className="center">
-            <SwapButton />
-            <LanguageButton  name="Translate" className="translate"/>
-          </div>
-          <div className="right">
-            <LanguageButton  name="Lingala"/>
-            <LanguageButton  name="English"/>
-            <LanguageButton  name="Fancais"/>
-          </div>
-        </div>
-      );
-    }
+export interface TranslateCtrlState {
+  from: {active: string};
+  to: {active: string};
+}
+
+class TranslateControls extends React.Component <object, TranslateCtrlState> {
+
+  constructor () {
+    super({});
+    this.state = {
+      from: {active : ''},
+      to: {active : ''}
+     };
   }
+
+  setActiveFrom = (lang: string) => {
+    this.setState({
+      from: {active: lang}
+    });
+  }
+
+  setActiveTo = (lang: string) => {
+    this.setState({
+      to: {active: lang}
+    });
+  }
+
+  render() {
+    return (
+      <div className="translate-controls">
+        <div className="left">
+          <LanguageButton  name="Lingala" active={this.state.from.active} setActive={this.setActiveFrom}/>
+          <LanguageButton  name="English" active={this.state.from.active} setActive={this.setActiveFrom}/>
+          <LanguageButton  name="Fancais" active={this.state.from.active} setActive={this.setActiveFrom}/>
+        </div>
+        <div className="center">
+          <SwapButton />
+          <LanguageButton
+            name="Translate"
+            active={this.state.from.active}
+            setActive={this.setActiveFrom}
+            className="translate"
+          />
+        </div>
+        <div className="right">
+          <LanguageButton  name="Lingala"  active={this.state.from.active} setActive={this.setActiveFrom}/>
+          <LanguageButton  name="English" active={this.state.from.active} setActive={this.setActiveFrom}/>
+          <LanguageButton  name="Fancais" active={this.state.from.active} setActive={this.setActiveFrom}/>
+        </div>
+      </div>
+    );
+  }
+}
 export default TranslateControls;
   
