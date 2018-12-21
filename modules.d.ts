@@ -1,3 +1,7 @@
+// Data
+declare module '*.json'
+
+// Images
 declare module '*.svg'
 declare module '*.png'
 declare module '*.jpg'
