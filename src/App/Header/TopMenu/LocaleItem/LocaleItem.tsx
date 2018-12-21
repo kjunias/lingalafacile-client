@@ -1,14 +1,14 @@
 import * as React from 'react';
 import './LocaleItem.css';
-var imgSrc = require('./images/locale.png');
+import locale from './images/locale.png';
 
 class LocaleItem extends React.Component {
-    render() {
-      return (
-        <div className="localeitem">
-            <img src={imgSrc} />
-        </div>
-      );
-    }
-  }  
+  public render() {
+    return (
+      <div className="localeitem">
+        <img src={locale} />
+      </div>
+    );
+  }
+}
 export default LocaleItem;

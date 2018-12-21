@@ -1,33 +1,33 @@
 import * as React from 'react';
 import './LanguageButton.css';
 
-export interface Props {
+export interface IProps {
   name: string;
   className?: string;
-  setActive: Function;
+  setActive: CallableFunction;
   active: string;
 }
 
-export interface LangState {
+export interface ILangState {
   isActive: boolean;
 }
 
-class LanguageButton extends React.Component <Props, LangState> {
+class LanguageButton extends React.Component<IProps, ILangState> {
 
-  constructor (props: Props) {
+  constructor(props: IProps) {
     super(props);
     this.state = { isActive: false };
   }
 
-  onLangClick = () => {
+  public onLangClick = () => {
     this.props.setActive(this.props.name);
   }
 
-  render() {
+  public render() {
     return (
       <button
         type="button"
-        className={'lang-button' + (this.props.className ? ' ' + this.props.className : '') 
+        className={'lang-button' + (this.props.className ? ' ' + this.props.className : '')
           + (this.props.active === this.props.name ? ' active' : '')}
         onClick={this.onLangClick}
       >
@@ -35,6 +35,5 @@ class LanguageButton extends React.Component <Props, LangState> {
       </button>
     );
   }
-}  
+}
 export default LanguageButton;
-  
