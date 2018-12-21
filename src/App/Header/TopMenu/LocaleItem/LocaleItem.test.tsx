@@ -1,8 +1,9 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import * as enzyme from 'enzyme';
 import LocaleItem from './LocaleItem';
+import imgSrc from './images/locale.png';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<LocaleItem />, div);
+  const localeItem = enzyme.shallow(<LocaleItem />);
+  expect(localeItem.find(".localeitem img").prop("src")).toEqual(imgSrc);
 });
