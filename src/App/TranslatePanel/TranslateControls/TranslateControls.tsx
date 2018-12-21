@@ -3,46 +3,45 @@ import './TranslateControls.css';
 import LanguageButton from './LanguageButton/LanguageButton';
 import SwapButton from './SwapButton/SwapButton';
 import TranslateButton from './TranslateButton/TranslateButton';
+import Languages from '../../../data/languages.json';
 
-export interface TranslateCtrlState {
-  from: {active: string};
-  to: {active: string};
+export interface ITranslateCtrlState {
+  from: { active: string };
+  to: { active: string };
 }
 
-export interface Language {
+export interface ILanguage {
   name: string;
 }
 
-let languages: Language[] = require('../../../data/languages.json');
+class TranslateControls extends React.Component<object, ITranslateCtrlState> {
 
-class TranslateControls extends React.Component <object, TranslateCtrlState> {
-
-  constructor (props: object) {
+  constructor(props: object) {
     super(props);
     this.state = {
-      from: {active : ''},
-      to: {active : ''}
-     };
+      from: { active: '' },
+      to: { active: '' }
+    };
   }
 
-  setActiveFrom = (lang: string) => {
+  private setActiveFrom = (lang: string) => {
     this.setState({
-      from: {active: lang}
+      from: { active: lang }
     });
   }
 
-  setActiveTo = (lang: string) => {
+  private setActiveTo = (lang: string) => {
     this.setState({
-      to: {active: lang}
+      to: { active: lang }
     });
   }
 
-  render() {
+  public render() {
     return (
       <div className="translate-controls">
         <div className="left">
-          {languages.map((lang, i) =>
-            <LanguageButton  key={i} name={lang.name} active={this.state.from.active} setActive={this.setActiveFrom}/>
+          {Languages.map((lang: ILanguage, i: string) =>
+            <LanguageButton key={i} name={lang.name} active={this.state.from.active} setActive={this.setActiveFrom} />
           )}
         </div>
         <div className="center">
@@ -50,8 +49,8 @@ class TranslateControls extends React.Component <object, TranslateCtrlState> {
           <TranslateButton />
         </div>
         <div className="right">
-          {languages.map((lang, i) =>
-            <LanguageButton  key={i} name={lang.name} active={this.state.to.active} setActive={this.setActiveTo}/>
+          {Languages.map((lang: ILanguage, i: string) =>
+            <LanguageButton key={i} name={lang.name} active={this.state.to.active} setActive={this.setActiveTo} />
           )}
         </div>
       </div>
@@ -59,4 +58,3 @@ class TranslateControls extends React.Component <object, TranslateCtrlState> {
   }
 }
 export default TranslateControls;
-  

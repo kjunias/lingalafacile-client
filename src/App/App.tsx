@@ -4,7 +4,7 @@ import Header from './Header/Header';
 import TranslatePanel from './TranslatePanel/TranslatePanel';
 
 class App extends React.Component {
-  render() {
+  public render() {
     return (
       <div className="App">
         <Header/>

@@ -1,16 +1,16 @@
 import * as React from 'react';
 import './MenuItem.css';
 
-export interface Props {
+export interface IProps {
   name: string;
 }
 
-class MenuItem extends React.Component <Props, object> {
-  constructor (props: Props) {
+class MenuItem extends React.Component <IProps, object> {
+  constructor (props: IProps) {
     super(props);
   }
 
-  render() {
+  public render() {
     return (
       <div className="menuitem">
         {this.props.name}
