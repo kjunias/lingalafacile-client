@@ -5,7 +5,7 @@ import SearchArea from './SearchArea/SearchArea';
 import TerminologySection from './TerminologySection/TerminologySection';
 
 class TranslatePanel extends React.Component {
-  public handleSubmit = (event: React.FormEvent) => {
+  private handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
   }
 

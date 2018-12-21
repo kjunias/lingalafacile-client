@@ -19,7 +19,7 @@ class LanguageButton extends React.Component<IProps, ILangState> {
     this.state = { isActive: false };
   }
 
-  public onLangClick = () => {
+  private onLangClick = () => {
     this.props.setActive(this.props.name);
   }
 

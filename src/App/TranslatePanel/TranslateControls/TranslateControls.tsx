@@ -24,13 +24,13 @@ class TranslateControls extends React.Component<object, ITranslateCtrlState> {
     };
   }
 
-  public setActiveFrom = (lang: string) => {
+  private setActiveFrom = (lang: string) => {
     this.setState({
       from: { active: lang }
     });
   }
 
-  public setActiveTo = (lang: string) => {
+  private setActiveTo = (lang: string) => {
     this.setState({
       to: { active: lang }
     });
