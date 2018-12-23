@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './TranslatePanel.css';
-import TranslateControls from './TranslateControls/TranslateControls';
+import TranslateControls from './TranslateControls/TranslateControlsContainer';
 import SearchArea from './SearchArea/SearchArea';
 import TerminologySection from './TerminologySection/TerminologySection';
 
