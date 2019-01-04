@@ -1,10 +1,12 @@
 export interface IStoreState {
     translate: {
         from: {
-            language: string
+            language: string,
+            value: string
         },
         to: {
-            language: string
+            language: string,
+            value: string
         }
     };
 }
