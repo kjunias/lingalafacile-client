@@ -13,5 +13,9 @@ it('renders without crashing', () => {
     return lang.toString();
   };
 
-  ReactDOM.render(<TranslateControls from={{ active: "test" }} to={{ active: "test" }} changeTranslateFromLanguage={changeTranslateFromLanguage} changeTranslateToLanguage={changeTranslateToLanguage} />, div);
+  const submitTranslate = (text: string) => {
+    return text.toString();
+  };
+
+  ReactDOM.render(<TranslateControls from={{ active: "test" }} to={{ active: "test" }} changeTranslateFromLanguage={changeTranslateFromLanguage} changeTranslateToLanguage={changeTranslateToLanguage} submitTranslate={submitTranslate}/>, div);
 });
