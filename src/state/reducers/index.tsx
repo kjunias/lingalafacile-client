@@ -1,8 +1,8 @@
-import { ChangeTranslateAction, SubmitTranslate } from '../actions';
+import { TranslateAction } from '../actions';
 import { IStoreState } from '../types/index';
 import { CHANGE_TRANSLATE_FROM_LANGUAGE, CHANGE_TRANSLATE_TO_LANGUAGE, SUBMIT_TRANSLATE } from '../constants/index';
 
-export function translateLanguageChange(state: IStoreState, action: ChangeTranslateAction): IStoreState {
+export function translateLanguageChange(state: IStoreState, action: TranslateAction): IStoreState {
     switch (action.type) {
         case CHANGE_TRANSLATE_FROM_LANGUAGE:
             return { ...state, translate: { ...state.translate, from: { ...state.translate.from, language: action.activeLanguage } } };
@@ -12,10 +12,10 @@ export function translateLanguageChange(state: IStoreState, action: ChangeTransl
     return state;
 }
 
-export function submitTranslate(state: IStoreState, action: SubmitTranslate): IStoreState {
+export function submitTranslate(state: IStoreState, action: TranslateAction): IStoreState {
     switch (action.type) {
         case SUBMIT_TRANSLATE:
-            return { ...state, translate: { ...state.translate, from: { ...state.translate.from, value: action.fromString } } };
+            return { ...state, translate: { ...state.translate, from: { ...state.translate.from, text: action.fromText } } };
     }
     return state;
 }

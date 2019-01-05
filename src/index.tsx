@@ -11,10 +11,12 @@ import { Provider } from 'react-redux';
 const store = createStore<StoreState, any, any, any>(translateLanguageChange, {
   translate: {
     from: {
-      language: ""
+      language: "",
+      text: ""
     },
     to: {
-      language: ""
+      language: "",
+      text: ""
     }
   }
 });

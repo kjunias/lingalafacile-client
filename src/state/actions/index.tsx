@@ -1,6 +1,6 @@
 import * as constants from '../constants';
 
-/* ===== Translate Languages =====*/
+/* ===== Translate Panel Actions =====*/
 export interface IChangeTranslateFromLanguage {
     type: constants.CHANGE_TRANSLATE_FROM_LANGUAGE;
     activeLanguage: string;
@@ -11,7 +11,16 @@ export interface IChangeTranslateToLanguage {
     activeLanguage: string;
 }
 
-export type ChangeTranslateAction = IChangeTranslateFromLanguage | IChangeTranslateToLanguage;
+export interface ISubmitTranslate {
+    type: constants.SUBMIT_TRANSLATE;
+    fromText: string;
+}
+
+export type TranslateAction = IChangeTranslateFromLanguage
+    | IChangeTranslateToLanguage
+    | ISubmitTranslate;
+
+export type SubmitTranslate = ISubmitTranslate;
 
 export function changeTranslateToLanguage(activeLang: string): IChangeTranslateToLanguage {
     return {
@@ -27,19 +36,10 @@ export function changeTranslateFromLanguage(activeLang: string): IChangeTranslat
     }
 }
 
-/* ===== Submit Translate ===== */
-
-export interface ISubmitTranslate {
-    type: constants.SUBMIT_TRANSLATE;
-    fromString: string;
-}
-
-export type SubmitTranslate = ISubmitTranslate;
-
 export function submitTranslate(fromStr: string): ISubmitTranslate {
     return {
         type: constants.SUBMIT_TRANSLATE,
-        fromString: fromStr
+        fromText: fromStr
     }
 }
 
