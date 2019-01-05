@@ -1,19 +1,23 @@
 import * as React from 'react';
 import './TranslateButton.css';
 
-class TranslateButton extends React.Component<object> {
+export interface IProps {
+  submitTranslate: CallableFunction;
+}
 
-  constructor(props: object) {
-    super(props);
-    this.state = { isActive: false };
-  }
+class TranslateButton extends React.Component<IProps> {
+
+constructor(props: IProps) {
+  super(props);
+  this.state = { isActive: false };
+}
 
   public render() {
-    return (
-      <button className="lang-button translate" type="submit">
-        Translate
+  return (
+    <button className="lang-button translate" type="submit">
+      Translate
       </button>
-    );
-  }
+  );
+}
 }
 export default TranslateButton;
