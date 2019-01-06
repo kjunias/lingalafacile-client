@@ -4,17 +4,22 @@ import TranslateControlsContainer from './TranslateControls/TranslateControlsCon
 import SearchAreaContainer from './SearchArea/SearchAreaContainer';
 import TerminologySection from './TerminologySection/TerminologySection';
 
-class TranslatePanel extends React.Component {
+export interface ITranslatePanelProps {
+  translateToTextChange: (translatedText: string) => void;
+}
+class TranslatePanel extends React.Component<ITranslatePanelProps> {
+
   private handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
+    this.props.translateToTextChange("Testing");
   }
 
   public render() {
     return (
       <form className="translate-panel" onSubmit={this.handleSubmit}>
-        <TranslateControlsContainer/>
-        <SearchAreaContainer/>
-        <TerminologySection/>
+        <TranslateControlsContainer />
+        <SearchAreaContainer />
+        <TerminologySection />
       </form>
     );
   }

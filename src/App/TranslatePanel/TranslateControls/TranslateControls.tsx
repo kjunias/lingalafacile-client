@@ -28,7 +28,7 @@ class TranslateControls extends React.Component<ITranslateCtrlProps> {
         </div>
         <div className="center">
           <SwapButton />
-          <TranslateButton submitTranslate={this.props.submitTranslate}/>
+          <TranslateButton/>
         </div>
         <div className="right">
           {Languages.map((lang: ILanguage, i: string) =>
