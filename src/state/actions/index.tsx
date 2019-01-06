@@ -21,10 +21,18 @@ export interface ITranslateFromTextChange {
     fromText: string;
 }
 
+export interface ITranslateToTextChange {
+    type: constants.TRANSLATE_TO_TEXT_CHANGE;
+    toText: string;
+}
+
 export type TranslateAction = IChangeTranslateFromLanguage
     | IChangeTranslateToLanguage
     | ISubmitTranslate
-    | ITranslateFromTextChange;
+    | ITranslateFromTextChange
+    | ITranslateToTextChange;
+
+export type TranslateTextChange = ITranslateFromTextChange | ITranslateToTextChange;
 
 export type SubmitTranslate = ISubmitTranslate;
 
@@ -53,6 +61,13 @@ export function translateFromTextChange(fromStr: string): ITranslateFromTextChan
     return {
         type: constants.TRANSLATE_FROM_TEXT_CHANGE,
         fromText: fromStr
+    }
+}
+
+export function translateToTextChange(toStr: string): ITranslateToTextChange {
+    return {
+        type: constants.TRANSLATE_TO_TEXT_CHANGE,
+        toText: toStr
     }
 }
 

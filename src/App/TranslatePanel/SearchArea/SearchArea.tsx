@@ -3,6 +3,7 @@ import './SearchArea.css';
 
 export interface ISearchAreaProps {
   searchText: string;
+  searchResult: string;
   onSearchTextChange: (searchText: string) => void;
 }
 
@@ -20,7 +21,7 @@ class SearchArea extends React.Component<ISearchAreaProps> {
           <textarea required={true} value={this.props.searchText} onChange={this.handleTextChange} />
         </div>
         <div className="to">
-          <textarea disabled={true} />
+          <textarea disabled={true} value={this.props.searchResult}/>
         </div>
       </div>
     );

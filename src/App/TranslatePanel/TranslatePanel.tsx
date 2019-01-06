@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './TranslatePanel.css';
-import TranslateControls from './TranslateControls/TranslateControlsContainer';
-import SearchArea from './SearchArea/SearchAreaContainer';
+import TranslateControlsContainer from './TranslateControls/TranslateControlsContainer';
+import SearchAreaContainer from './SearchArea/SearchAreaContainer';
 import TerminologySection from './TerminologySection/TerminologySection';
 
 class TranslatePanel extends React.Component {
@@ -12,8 +12,8 @@ class TranslatePanel extends React.Component {
   public render() {
     return (
       <form className="translate-panel" onSubmit={this.handleSubmit}>
-        <TranslateControls/>
-        <SearchArea/>
+        <TranslateControlsContainer/>
+        <SearchAreaContainer/>
         <TerminologySection/>
       </form>
     );
