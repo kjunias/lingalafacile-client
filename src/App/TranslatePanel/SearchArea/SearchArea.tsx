@@ -3,14 +3,14 @@ import './SearchArea.css';
 
 export interface ISearchAreaProps {
   text: string;
-  onTextChange: (text: string) => void;
+  onSearchTextChange: (text: string) => void;
 }
 
 class SearchArea extends React.Component<ISearchAreaProps> {
 
   private handleTextChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     event.preventDefault();
-    this.props.onTextChange(event.target.value);
+    this.props.onSearchTextChange(event.target.value);
   }
 
   public render() {

@@ -12,7 +12,7 @@ export function mapStateToProps(state: StoreState) {
 
 export function mapDispatchToProps(dispatch: Dispatch<actions.ITranslateFromTextChange>) {
   return {
-    onTextChange: (text: string) => dispatch(actions.translateFromTextChange(text))
+    onSearchTextChange: (text: string) => dispatch(actions.translateFromTextChange(text))
   }
 }
 

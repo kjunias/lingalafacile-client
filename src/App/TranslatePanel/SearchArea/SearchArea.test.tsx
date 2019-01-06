@@ -5,5 +5,5 @@ import SearchArea from './SearchArea';
 it('renders without crashing', () => {
   const div = document.createElement('div');
   const onTextChange = () => print()
-  ReactDOM.render(<SearchArea text="test" onTextChange={onTextChange}/>, div);
+  ReactDOM.render(<SearchArea text="test" onSearchTextChange={onTextChange}/>, div);
 });
