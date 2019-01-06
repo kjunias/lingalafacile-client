@@ -6,13 +6,13 @@ import { Dispatch } from 'redux';
 
 export function mapStateToProps(state: StoreState) {
   return {
-    text: state.translate.from.text
+    searchText: state.translate.from.text
   };
 }
 
 export function mapDispatchToProps(dispatch: Dispatch<actions.ITranslateFromTextChange>) {
   return {
-    onSearchTextChange: (text: string) => dispatch(actions.translateFromTextChange(text))
+    onSearchTextChange: (searchText: string) => dispatch(actions.translateFromTextChange(searchText))
   }
 }
 
