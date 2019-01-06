@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './TranslatePanel.css';
 import TranslateControls from './TranslateControls/TranslateControlsContainer';
-import SearchArea from './SearchArea/SearchArea';
+import SearchArea from './SearchArea/SearchAreaContainer';
 import TerminologySection from './TerminologySection/TerminologySection';
 
 class TranslatePanel extends React.Component {

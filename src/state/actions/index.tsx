@@ -16,9 +16,15 @@ export interface ISubmitTranslate {
     fromText: string;
 }
 
+export interface ITranslateFromTextChange {
+    type: constants.TRANSLATE_FROM_TEXT_CHANGE;
+    fromText: string;
+}
+
 export type TranslateAction = IChangeTranslateFromLanguage
     | IChangeTranslateToLanguage
-    | ISubmitTranslate;
+    | ISubmitTranslate
+    | ITranslateFromTextChange;
 
 export type SubmitTranslate = ISubmitTranslate;
 
@@ -39,6 +45,13 @@ export function changeTranslateFromLanguage(activeLang: string): IChangeTranslat
 export function submitTranslate(fromStr: string): ISubmitTranslate {
     return {
         type: constants.SUBMIT_TRANSLATE,
+        fromText: fromStr
+    }
+}
+
+export function translateFromTextChange(fromStr: string): ITranslateFromTextChange {
+    return {
+        type: constants.TRANSLATE_FROM_TEXT_CHANGE,
         fromText: fromStr
     }
 }
