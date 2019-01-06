@@ -8,9 +8,9 @@ export interface ISearchAreaProps {
 
 class SearchArea extends React.Component<ISearchAreaProps> {
 
-  private handleTextChange = (event: React.ChangeEvent) => {
-    const text = typeof event.target.nodeValue === "string" ? event.target.nodeValue : "";
-    this.props.onTextChange(text);
+  private handleTextChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    event.preventDefault();
+    this.props.onTextChange(event.target.value);
   }
 
   public render() {
