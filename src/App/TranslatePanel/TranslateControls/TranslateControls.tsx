@@ -10,7 +10,6 @@ export interface ITranslateCtrlProps {
   to: { active: string };
   changeTranslateFromLanguage: (active: string) => void;
   changeTranslateToLanguage: (active: string) => void;
-  submitTranslate: (active: string) => void;
 }
 
 export interface ILanguage {

@@ -4,6 +4,6 @@ import TranslatePanel from './TranslatePanel';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  const handleSubmit = (translatedText: string) =>
-  ReactDOM.render(<TranslatePanel translateToTextChange={handleSubmit}/>, div);
+  const handleSubmit = () =>
+  ReactDOM.render(<TranslatePanel fromLanguage="English" toLanguage="Lingala" fromText="Test" getTranslation={handleSubmit}/>, div);
 });
