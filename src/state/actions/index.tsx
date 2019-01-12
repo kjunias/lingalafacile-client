@@ -1,4 +1,7 @@
 import * as constants from '../constants';
+import {ThunkAction, ThunkDispatch} from 'redux-thunk';
+import fetch from 'cross-fetch';
+import { StoreState } from '../types/index';
 
 /* ===== Translate Panel Actions =====*/
 export interface IChangeTranslateFromLanguage {
@@ -37,7 +40,8 @@ export type TranslateAction = IChangeTranslateFromLanguage
     | IChangeTranslateToLanguage
     | ISubmitTranslate
     | ITranslateFromTextChange
-    | ITranslateToTextChange;
+    | ITranslateToTextChange
+    | IGetTranslation;
 
 export type TranslateTextChange = ITranslateFromTextChange | ITranslateToTextChange;
 
@@ -71,11 +75,33 @@ export function translateToTextChange(toStr: string): ITranslateToTextChange {
     }
 }
 
-export function getTranslation(fromLang:string, toLang: string, fromTxt: string): IGetTranslation {
+
+export interface ITranslation {
+    fromLanguage: string;
+    toLanguage: string;
+    fromText: string;
+    toText: string;
+}
+
+
+export function getTranslation(fromLang: string, toLang: string, fromTxt: string): IGetTranslation {
+    performTranslationRequest(fromLang, toLang, fromTxt);
     return {
         type: constants.GET_TRANSLATION,
         fromLanguage: fromLang,
         toLanguage: toLang,
         fromText: fromTxt
     }
+}
+
+export function performTranslationRequest(fromLang: string, toLang: string, fromTxt: string): ThunkAction<Promise <void>, StoreState, any, TranslateAction> {
+    return  async (dispatch: ThunkDispatch<StoreState, any, TranslateAction>): Promise<void> => {
+        fetch(`http://localhost:9000/translate/${fromTxt}`).then((response) => {
+            // tslint:disable-next-line
+            debugger;
+        }, (error) => {
+            // tslint:disable-next-line
+            debugger;
+        });
+    };
 }
