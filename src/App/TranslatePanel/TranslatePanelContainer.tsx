@@ -14,7 +14,8 @@ export function mapStateToProps(state: StoreState) {
 
 export function mapDispatchToProps(dispatch: Dispatch<actions.IGetTranslation>) {
   return {
-    getTranslation: (fromLanguage: string, toLanguage: string, fromText: string) => dispatch(actions.getTranslation(fromLanguage, toLanguage, fromText))
+    getTranslation: (fromLanguage: string, toLanguage: string, fromText: string) =>
+      actions.getTranslation(fromLanguage, toLanguage, fromText).then(action => dispatch(action))
   }
 }
 

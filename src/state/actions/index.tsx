@@ -1,7 +1,5 @@
-import * as constants from '../constants';
-import {ThunkAction, ThunkDispatch} from 'redux-thunk';
 import fetch from 'cross-fetch';
-import { StoreState } from '../types/index';
+import * as constants from '../constants';
 
 /* ===== Translate Panel Actions =====*/
 export interface IChangeTranslateFromLanguage {
@@ -29,11 +27,12 @@ export interface ITranslateToTextChange {
     toText: string;
 }
 
-export interface IGetTranslation {
-    type: constants.GET_TRANSLATION;
+export interface IGetTranslationSuccess {
+    type: constants.GET_TRANSLATION_SUCCESS;
     fromLanguage: string;
     toLanguage: string;
     fromText: string;
+    toText: string;
 }
 
 export type TranslateAction = IChangeTranslateFromLanguage
@@ -41,7 +40,11 @@ export type TranslateAction = IChangeTranslateFromLanguage
     | ISubmitTranslate
     | ITranslateFromTextChange
     | ITranslateToTextChange
-    | IGetTranslation;
+    | IGetTranslation
+    | IGetTranslationSuccess;
+
+
+export type IGetTranslation = IGetTranslationSuccess;
 
 export type TranslateTextChange = ITranslateFromTextChange | ITranslateToTextChange;
 
@@ -75,7 +78,6 @@ export function translateToTextChange(toStr: string): ITranslateToTextChange {
     }
 }
 
-
 export interface ITranslation {
     fromLanguage: string;
     toLanguage: string;
@@ -83,25 +85,20 @@ export interface ITranslation {
     toText: string;
 }
 
-
-export function getTranslation(fromLang: string, toLang: string, fromTxt: string): IGetTranslation {
-    performTranslationRequest(fromLang, toLang, fromTxt);
-    return {
-        type: constants.GET_TRANSLATION,
-        fromLanguage: fromLang,
-        toLanguage: toLang,
-        fromText: fromTxt
-    }
+export function getTranslation(fromLang: string, toLang: string, fromTxt: string): Promise <IGetTranslationSuccess> {
+    return performTranslationRequest(fromLang, toLang, fromTxt).then((res: Response) => {
+        return res.json();
+    }).then((translation) => {
+        return {
+            type: constants.GET_TRANSLATION_SUCCESS,
+            fromLanguage: fromLang,
+            toLanguage: toLang,
+            fromText: fromTxt,
+            toText:translation.translations[toLang.toLowerCase()]
+        } as IGetTranslationSuccess
+    });
 }
 
-export function performTranslationRequest(fromLang: string, toLang: string, fromTxt: string): ThunkAction<Promise <void>, StoreState, any, TranslateAction> {
-    return  async (dispatch: ThunkDispatch<StoreState, any, TranslateAction>): Promise<void> => {
-        fetch(`http://localhost:9000/translate/${fromTxt}`).then((response) => {
-            // tslint:disable-next-line
-            debugger;
-        }, (error) => {
-            // tslint:disable-next-line
-            debugger;
-        });
-    };
+export function performTranslationRequest(fromLang: string, toLang: string, fromTxt: string): Promise <Response> {
+    return fetch(`http://localhost:9000/translate/${fromTxt}`);
 }
