@@ -10,7 +10,6 @@ export interface ITranslateCtrlProps {
   to: { active: string };
   changeTranslateFromLanguage: (active: string) => void;
   changeTranslateToLanguage: (active: string) => void;
-  submitTranslate: (active: string) => void;
 }
 
 export interface ILanguage {
@@ -28,7 +27,7 @@ class TranslateControls extends React.Component<ITranslateCtrlProps> {
         </div>
         <div className="center">
           <SwapButton />
-          <TranslateButton submitTranslate={this.props.submitTranslate}/>
+          <TranslateButton/>
         </div>
         <div className="right">
           {Languages.map((lang: ILanguage, i: string) =>

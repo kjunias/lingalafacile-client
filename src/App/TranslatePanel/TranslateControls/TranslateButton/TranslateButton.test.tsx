@@ -4,9 +4,5 @@ import TranslateButton from './TranslateButton';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  const submitTranslate = () => {
-    print();
-  };
-
-  ReactDOM.render(<TranslateButton submitTranslate={submitTranslate}/>, div);
+  ReactDOM.render(<TranslateButton/>, div);
 });

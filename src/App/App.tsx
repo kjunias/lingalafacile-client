@@ -1,14 +1,14 @@
 import * as React from 'react';
 import './App.css';
 import Header from './Header/Header';
-import TranslatePanel from './TranslatePanel/TranslatePanel';
+import TranslatePanelContainer from './TranslatePanel/TranslatePanelContainer';
 
 class App extends React.Component {
   public render() {
     return (
       <div className="App">
         <Header/>
-        <TranslatePanel/>
+        <TranslatePanelContainer/>
       </div>
     );
   }

@@ -1,3 +1,4 @@
+import fetch from 'cross-fetch';
 import * as constants from '../constants';
 
 /* ===== Translate Panel Actions =====*/
@@ -26,11 +27,24 @@ export interface ITranslateToTextChange {
     toText: string;
 }
 
+export interface IGetTranslationSuccess {
+    type: constants.GET_TRANSLATION_SUCCESS;
+    fromLanguage: string;
+    toLanguage: string;
+    fromText: string;
+    toText: string;
+}
+
 export type TranslateAction = IChangeTranslateFromLanguage
     | IChangeTranslateToLanguage
     | ISubmitTranslate
     | ITranslateFromTextChange
-    | ITranslateToTextChange;
+    | ITranslateToTextChange
+    | IGetTranslation
+    | IGetTranslationSuccess;
+
+
+export type IGetTranslation = IGetTranslationSuccess;
 
 export type TranslateTextChange = ITranslateFromTextChange | ITranslateToTextChange;
 
@@ -50,13 +64,6 @@ export function changeTranslateFromLanguage(activeLang: string): IChangeTranslat
     }
 }
 
-export function submitTranslate(fromStr: string): ISubmitTranslate {
-    return {
-        type: constants.SUBMIT_TRANSLATE,
-        fromText: fromStr
-    }
-}
-
 export function translateFromTextChange(fromStr: string): ITranslateFromTextChange {
     return {
         type: constants.TRANSLATE_FROM_TEXT_CHANGE,
@@ -71,3 +78,27 @@ export function translateToTextChange(toStr: string): ITranslateToTextChange {
     }
 }
 
+export interface ITranslation {
+    fromLanguage: string;
+    toLanguage: string;
+    fromText: string;
+    toText: string;
+}
+
+export function getTranslation(fromLang: string, toLang: string, fromTxt: string): Promise <IGetTranslationSuccess> {
+    return performTranslationRequest(fromLang, toLang, fromTxt).then((res: Response) => {
+        return res.json();
+    }).then((translation) => {
+        return {
+            type: constants.GET_TRANSLATION_SUCCESS,
+            fromLanguage: fromLang,
+            toLanguage: toLang,
+            fromText: fromTxt,
+            toText:translation.translations[toLang.toLowerCase()]
+        } as IGetTranslationSuccess
+    });
+}
+
+export function performTranslationRequest(fromLang: string, toLang: string, fromTxt: string): Promise <Response> {
+    return fetch(`http://localhost:9000/translate/${fromTxt}`);
+}
