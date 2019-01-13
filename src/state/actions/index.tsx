@@ -1,4 +1,4 @@
-import fetch from 'cross-fetch';
+import * as api from '../../api';
 import * as constants from '../constants';
 
 /* ===== Translate Panel Actions =====*/
@@ -86,19 +86,13 @@ export interface ITranslation {
 }
 
 export function getTranslation(fromLang: string, toLang: string, fromTxt: string): Promise <IGetTranslationSuccess> {
-    return performTranslationRequest(fromLang, toLang, fromTxt).then((res: Response) => {
-        return res.json();
-    }).then((translation) => {
+    return api.getTranslation(fromLang, toLang, fromTxt).then((translation: string) => {
         return {
             type: constants.GET_TRANSLATION_SUCCESS,
             fromLanguage: fromLang,
             toLanguage: toLang,
             fromText: fromTxt,
-            toText:translation.translations[toLang.toLowerCase()]
+            toText: translation
         } as IGetTranslationSuccess
-    });
-}
-
-export function performTranslationRequest(fromLang: string, toLang: string, fromTxt: string): Promise <Response> {
-    return fetch(`http://localhost:9000/translate/${fromTxt}`);
+    })
 }
