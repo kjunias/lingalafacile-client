@@ -1,4 +1,3 @@
-
 export function getTranslation(fromLanguage: string, toLanguage: string, fromText: string): Promise <string> {
     return performTranslationRequest(fromLanguage, toLanguage, fromText).then((res: Response) => {
         return res.json();
