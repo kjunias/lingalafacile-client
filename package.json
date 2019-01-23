@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "cross-fetch": "^3.0.0",
-    "dotenv": "^6.2.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",
@@ -14,13 +13,11 @@
   },
   "scripts": {
     "start": "react-scripts-ts start",
-    "start:dev": "react-scripts-ts start --env-file=.env.development",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject"
   },
   "devDependencies": {
-    "@types/dotenv": "^6.1.0",
     "@types/enzyme": "^3.1.15",
     "@types/enzyme-adapter-react-16": "^1.0.3",
     "@types/jest": "^23.3.10",
