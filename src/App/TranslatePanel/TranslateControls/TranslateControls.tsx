@@ -18,8 +18,6 @@ export interface ILanguage {
 
 class TranslateControls extends React.Component<ITranslateCtrlProps> {
   public render() {
-    // tslint:disable-next-line
-    console.log('process.env:', process.env);
     return (
       <div className="translate-controls">
         <div className="left">
