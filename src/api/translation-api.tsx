@@ -1,4 +1,4 @@
-import CONSTANTS from '../utils/constants';
+import CONSTANTS from '@utils/constants';
 
 export function getTranslation(fromLanguage: string, toLanguage: string, fromText: string): Promise <string> {
     return performTranslationRequest(fromLanguage, toLanguage, fromText).then((res: Response) => {
