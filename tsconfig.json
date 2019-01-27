@@ -17,7 +17,14 @@
     "importHelpers": true,
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true
+    "noUnusedLocals": true,
+    "paths": {
+      "@src/*": ["src/*"],
+      "@api/*": ["src/api/*"],
+      "@utils/*": ["src/utils/*"],
+      "@state/*": ["src/state/*"],
+      "@data/*": ["src/data/*"]
+    }
   },
   "exclude": [
     "node_modules",
