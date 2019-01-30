@@ -15,8 +15,6 @@ class TranslatePanel extends React.Component<ITranslatePanelProps> {
   private handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     if (this.handleValidation()) {
-      // tslint:disable-next-line
-      debugger
       this.props.getTranslation(this.props.fromLanguage, this.props.toLanguage, this.props.fromText);
     }
   }
