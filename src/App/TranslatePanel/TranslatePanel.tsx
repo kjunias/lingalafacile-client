@@ -1,8 +1,8 @@
 import * as React from 'react';
-import './TranslatePanel.css';
-import TranslateControlsContainer from './TranslateControls/TranslateControlsContainer';
 import SearchAreaContainer from './SearchArea/SearchAreaContainer';
 import TerminologySection from './TerminologySection/TerminologySection';
+import TranslateControlsContainer from './TranslateControls/TranslateControlsContainer';
+import './TranslatePanel.css';
 
 export interface ITranslatePanelProps {
   fromLanguage: string;
@@ -14,7 +14,17 @@ class TranslatePanel extends React.Component<ITranslatePanelProps> {
 
   private handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    this.props.getTranslation(this.props.fromLanguage, this.props.toLanguage, this.props.fromText);
+    if (this.handleValidation()) {
+      // tslint:disable-next-line
+      debugger
+      this.props.getTranslation(this.props.fromLanguage, this.props.toLanguage, this.props.fromText);
+    }
+  }
+
+  private handleValidation(): boolean {
+    return this.props.fromLanguage !== null && this.props.fromLanguage !== ''
+    && this.props.toLanguage !== null && this.props.toLanguage !== ''
+    && this.props.fromText !== null && this.props.fromText !== '';
   }
 
   public render() {
