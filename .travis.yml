@@ -10,3 +10,7 @@ branches:
     - master
     - develop
     - /.*/
+
+notifications:
+  email:
+    on_success: always
