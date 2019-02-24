@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+    - "11.5.0"
+git:
+    depth: 3
+
+# safelist
+branches:
+    only:
+    - master
+    - develop
+    - /.*/
